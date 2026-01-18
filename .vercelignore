@@ -1,0 +1,45 @@
+# Python scripts
+*.py
+__pycache__/
+*.pyc
+
+# Figma JSON files
+figma-*.json
+*.json
+
+# Documentation
+*.md
+!README.md
+
+# Development files
+.vscode/
+.idea/
+*.log
+
+# Large assets that should be optimized
+public/figma-assets/
+
+# Test files
+test/
+tests/
+__tests__/
+
+# Build artifacts
+.next/
+out/
+dist/
+build/
+
+# Dependencies (should be installed on Vercel)
+node_modules/
+
+# Environment files
+.env*
+!.env.example
+
+# Git
+.git/
+.gitignore
+
+# Vercel
+.vercel/

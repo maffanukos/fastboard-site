@@ -1,0 +1,172 @@
+{
+  "name": "FB2-PAGES",
+  "lastModified": "2026-01-16T15:05:13Z",
+  "thumbnailUrl": "https://s3-alpha.figma.com/thumbnails/cd246f8c-678e-4333-ac17-4b6f1a630f6b?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWC7JYGSSJU%2F20260118%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260118T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=6292b2bc1ad9cc063b1b2dfaa909c884eddf76fd990b85dea305f4a8f7a714ab",
+  "version": "2309671624689887779",
+  "role": "viewer",
+  "editorType": "figma",
+  "linkAccess": "inherit",
+  "nodes": {
+    "1794:11653": {
+      "document": {
+        "id": "1794:11653",
+        "name": "state=Default",
+        "type": "COMPONENT",
+        "scrollBehavior": "SCROLLS",
+        "boundVariables": {
+          "paddingLeft": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:fe0af167db8b4f1eb85bf5796b28385694604089/7149:250"
+          },
+          "paddingTop": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:379404d4c1cc152fe2c94cf6632d8b91792ed7c6/7149:249"
+          },
+          "paddingRight": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:fe0af167db8b4f1eb85bf5796b28385694604089/7149:250"
+          },
+          "paddingBottom": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:fe0af167db8b4f1eb85bf5796b28385694604089/7149:250"
+          },
+          "rectangleCornerRadii": {
+            "RECTANGLE_TOP_LEFT_CORNER_RADIUS": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:e933f84eec6cd2217156e22975bd243924afd026/7797:6"
+            },
+            "RECTANGLE_TOP_RIGHT_CORNER_RADIUS": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:e933f84eec6cd2217156e22975bd243924afd026/7797:6"
+            },
+            "RECTANGLE_BOTTOM_LEFT_CORNER_RADIUS": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:e933f84eec6cd2217156e22975bd243924afd026/7797:6"
+            },
+            "RECTANGLE_BOTTOM_RIGHT_CORNER_RADIUS": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:e933f84eec6cd2217156e22975bd243924afd026/7797:6"
+            }
+          }
+        },
+        "children": [],
+        "blendMode": "PASS_THROUGH",
+        "clipsContent": true,
+        "background": [],
+        "fills": [],
+        "strokes": [
+          {
+            "blendMode": "NORMAL",
+            "type": "GRADIENT_LINEAR",
+            "gradientHandlePositions": [
+              {
+                "x": 0.5,
+                "y": -3.0616171314629196e-17
+              },
+              {
+                "x": 0.5,
+                "y": 0.9999999999999999
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ],
+            "gradientStops": [
+              {
+                "color": {
+                  "r": 0.04562684893608093,
+                  "g": 0.32555538415908813,
+                  "b": 0.45192307233810425,
+                  "a": 1.0
+                },
+                "position": 0.0
+              },
+              {
+                "color": {
+                  "r": 0.03661242499947548,
+                  "g": 0.287303626537323,
+                  "b": 0.6346153616905212,
+                  "a": 1.0
+                },
+                "position": 1.0
+              }
+            ]
+          }
+        ],
+        "cornerRadius": 20.0,
+        "cornerSmoothing": 0.0,
+        "strokeWeight": 1.0,
+        "strokeAlign": "INSIDE",
+        "backgroundColor": {
+          "r": 0.0,
+          "g": 0.0,
+          "b": 0.0,
+          "a": 0.0
+        },
+        "absoluteBoundingBox": {
+          "x": 860.0,
+          "y": 93.0,
+          "width": 321.0,
+          "height": 480.0
+        },
+        "absoluteRenderBounds": {
+          "x": 860.0,
+          "y": 93.0,
+          "width": 321.0,
+          "height": 480.0
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "transitionNodeID": "1794:11654",
+        "transitionDuration": 150.0,
+        "transitionEasing": "EASE_OUT",
+        "interactions": [
+          {
+            "trigger": {
+              "type": "ON_HOVER"
+            },
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "1794:11654",
+                "navigation": "CHANGE_TO",
+                "transition": {
+                  "type": "SMART_ANIMATE",
+                  "easing": {
+                    "type": "EASE_OUT"
+                  },
+                  "duration": 0.15000000596046448
+                },
+                "resetVideoPosition": false
+              }
+            ]
+          }
+        ]
+      },
+      "components": {
+        "1794:11653": {
+          "key": "bb34d68bfc28cb4731d7d2bb3e010fd85e50238f",
+          "name": "state=Default",
+          "description": "",
+          "remote": true,
+          "componentSetId": "1794:11652",
+          "documentationLinks": []
+        }
+      },
+      "componentSets": {
+        "1794:11652": {
+          "key": "fb3295dfeb90bffbf53bc08c1d158ebe65938a9f",
+          "name": "Card-bg",
+          "description": "",
+          "remote": true
+        }
+      },
+      "schemaVersion": 0,
+      "styles": {}
+    }
+  }
+}

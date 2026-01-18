@@ -1,0 +1,1032 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f5f5f7;
+  --foreground: #050816;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+}
+
+/* Устанавливаем Inter как основной шрифт */
+* {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+html, body {
+  overflow-x: hidden; /* Убираем горизонтальный скролл */
+  width: 100%;
+  max-width: 100%;
+}
+
+body {
+  background: #040D15; /* Темный фон для всего сайта */
+  color: var(--foreground);
+}
+
+/* Кнопка с градиентной обводкой как в макете - точная копия из Figma */
+.btn-gradient-border {
+  position: relative;
+  background: rgba(21, 24, 30, 0.1);
+  box-shadow: inset 0px -2px 4px #02E3FB;
+  backdrop-filter: blur(5px);
+  border: none;
+  isolation: isolate;
+  overflow: hidden; /* Скрываем градиент, который выходит за пределы */
+  transition: all 0.3s ease;
+}
+
+/* Анимированный градиент внутри кнопки, который убегает от мышки */
+.btn-gradient-inner {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: background 0.15s ease-out;
+  z-index: 0;
+  border-radius: 50px;
+}
+
+/* Градиентная обводка */
+.btn-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  padding: 1px;
+  background: linear-gradient(-44deg, rgba(255, 255, 255, 0.1) 10%, rgba(0, 239, 253, 0) 25%, rgba(11, 178, 242, 0) 90%, rgba(0, 177, 253, 0.85) 98%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Свечение вокруг кнопки - равномерное радиальное */
+.btn-gradient-border::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50px;
+  background: radial-gradient(circle, rgba(0, 134, 229, 0.3) 0%, transparent 60%);
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Градиентный текст для кнопки "Запросить демо" */
+.btn-link-gradient {
+  position: relative;
+  background: linear-gradient(135deg, rgba(0, 239, 253, 1) 0%, rgba(11, 178, 242, 1) 33%, rgba(20, 131, 234, 1) 66%, rgba(31, 70, 224, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  transition: all 0.3s ease;
+}
+
+.btn-link-gradient:hover {
+  background-position: 100% 0;
+  filter: brightness(1.2);
+}
+
+/* Header компонент из библиотеки Figma - full width */
+header.sticky {
+  position: relative;
+}
+
+header.sticky::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(21, 24, 30, 0.2); /* Исходный цвет из Figma */
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  z-index: -1; /* Под всем контентом header */
+  pointer-events: none;
+}
+
+.header-top-bar,
+.header-main-nav {
+  position: relative;
+  z-index: 998; /* Ниже меню, но выше контента */
+  width: 100%; /* Full width */
+  border-bottom: none; /* Нет обводки */
+  background: transparent; /* Прозрачный, чтобы видеть размытие через псевдоэлемент */
+}
+
+.header-top-bar::after,
+.header-main-nav::after {
+  content: none; /* Убираем градиентную границу, так как обводок нет */
+}
+
+/* Карточки тарифных планов с hover эффектом */
+.pricing-card {
+  border: none !important; /* Убираем все границы */
+  background: transparent;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.pricing-card > * {
+  position: relative;
+  z-index: 1; /* Контент карточки выше псевдоэлемента */
+}
+
+.pricing-card:hover {
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 0 40px rgba(0, 96, 229, 0.3);
+}
+
+.pricing-card:hover::before {
+  opacity: 1;
+}
+
+/* Градиентная обводка для тегов */
+.gradient-border {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1); /* Фон для контента */
+  border: none !important; /* Убираем все границы */
+  border-radius: 10px;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  padding: 1px;
+  background: linear-gradient(325deg, rgba(0, 96, 229, 0.50) 11.54%, rgba(0, 239, 253, 0.00) 17.74%, rgba(11, 178, 242, 0.00) 77.26%, rgba(0, 177, 253, 0.85) 97.51%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Градиентная обводка для карточек услуг */
+.service-card-border {
+  position: relative;
+  border-radius: 20px;
+  background: linear-gradient(
+    to bottom,
+    rgba(12, 83, 115, 0.25) 0%,
+    rgba(21, 24, 30, 0.5) 30%,
+    rgba(21, 24, 30, 0.4) 70%,
+    rgba(9, 73, 162, 0.3) 100%
+  ) !important; /* Градиентный полупрозрачный темный фон с синими оттенками */
+  border: 1px solid transparent;
+  backdrop-filter: blur(10px); /* Легкое размытие для эффекта стекла */
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden; /* Обрезаем содержимое по границам карточки */
+}
+
+.service-card-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1px;
+  background: linear-gradient(to bottom, rgba(12, 83, 115, 1) 0%, rgba(9, 73, 162, 1) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+  box-shadow: 0 0 20px rgba(12, 83, 115, 0.3); /* Эффект свечения */
+}
+
+/* Градиентная обводка для карточек при hover */
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  padding: 1px;
+  background: linear-gradient(325deg, rgba(0, 96, 229, 0.50) 11.54%, rgba(0, 239, 253, 0.00) 17.74%, rgba(11, 178, 242, 0.00) 77.26%, rgba(0, 177, 253, 0.85) 97.51%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0; /* Под контентом карточки */
+}
+
+/* Кнопки навигации - легкая подсветка при hover */
+.nav-link {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* Легкая подсветка фона при hover */
+.nav-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.nav-link:hover::before,
+.nav-dropdown:hover > .nav-link::before {
+  opacity: 1;
+}
+
+/* Overlay для размытия фона под меню - эффект матового стекла */
+.nav-dropdown-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(8px); /* Легкое размытие всего фона */
+  -webkit-backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  pointer-events: auto;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Выпадающее меню второго уровня - точная копия из Figma */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 12px); /* Меню начинается ниже хедера с отступом */
+  left: 0;
+  min-width: 500px;
+  background: rgba(0, 0, 0, 0.75); /* Эффект черного стекла как у формы */
+  backdrop-filter: blur(24px); /* Размытие фона за меню */
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Тонкая светлая граница для эффекта стекла */
+  border-radius: 24px;
+  padding: 24px; /* Base/Paddings/lg */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px) scale(0.95);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1001; /* Выше overlay и хедера */
+  pointer-events: none;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05); /* Внутренняя подсветка для эффекта стекла */
+}
+
+
+/* Заголовок выпадающего меню */
+.nav-dropdown-header {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-dropdown-title {
+  font-size: 20px;
+  line-height: 140%;
+  font-weight: 600;
+  color: white;
+  margin: 0 0 4px 0;
+}
+
+.nav-dropdown-description {
+  font-size: 13px;
+  line-height: 140%;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.nav-dropdown-menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.nav-dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.nav-dropdown-item {
+  display: flex;
+  flex-direction: column;
+  padding: 12px; /* Компактнее */
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  position: relative;
+  background: transparent; /* Прозрачный по умолчанию */
+  border: none;
+}
+
+.nav-dropdown-item-title {
+  font-size: 15px;
+  line-height: 140%;
+  font-weight: 500;
+  margin-bottom: 2px;
+  color: white;
+}
+
+.nav-dropdown-item-desc {
+  font-size: 12px;
+  line-height: 140%;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+}
+
+.nav-dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-dropdown-item:hover .nav-dropdown-item-title {
+  color: #00bfff;
+}
+
+/* Форма обратной связи - эффект черного стекла */
+.contact-form-modal {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.contact-form-content {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-form-title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 110%;
+  color: white;
+  margin: 0;
+}
+
+.contact-form-description {
+  font-size: 16px;
+  line-height: 140%;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.contact-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-form-field-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .contact-form-field-group {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-form-label {
+  font-size: 14px;
+  line-height: 140%;
+  font-weight: 400;
+  color: white;
+}
+
+.contact-form-input {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: white;
+  font-size: 16px;
+  line-height: 140%;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s ease;
+}
+
+.contact-form-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-form-input:focus {
+  outline: none;
+  border-color: rgba(2, 209, 251, 0.5);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 2px rgba(2, 209, 251, 0.2);
+}
+
+.contact-form-submit {
+  width: 100%;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(2, 209, 251, 0.5);
+  border-radius: 50px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 140%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form-submit::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, rgba(2, 209, 251, 0.3) 0%, rgba(2, 209, 251, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  filter: blur(8px);
+}
+
+.contact-form-submit:hover {
+  border-color: rgba(2, 209, 251, 0.8);
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.contact-form-submit:hover::before {
+  opacity: 1;
+}
+
+.contact-form-consent {
+  font-size: 13px;
+  line-height: 120%;
+  color: #00bfff;
+  text-align: center;
+  margin: 0;
+}
+
+/* Футер - эффект черного стекла с анимациями */
+.footer-container {
+  position: relative;
+  background: transparent;
+  margin: 0;
+  padding-top: 100px; /* Отступ сверху 100px для искр */
+  padding-bottom: 60px; /* Отступ снизу 60px до конца страницы */
+  overflow-x: hidden; /* Убираем горизонтальный скролл */
+  overflow-y: visible; /* Разрешаем видеть искры сверху */
+  width: 100%;
+  max-width: 100%;
+  /* Используем clip-path для ограничения видимой области снизу, но не сверху */
+  clip-path: inset(-100px 0 0 0); /* Разрешаем выход на 100px сверху для искр */
+}
+
+/* Скрываем цветные элементы управления Яндекс.Карт */
+.ymaps-2-1-79-copyright,
+.ymaps-2-1-79-copyright__wrap,
+.ymaps-2-1-79-controls__bottom,
+.ymaps-2-1-79-controls__left a[href*="yandex.ru/maps"],
+.ymaps-2-1-79-controls__left a[href*="yandex.ru/constructor"] {
+  display: none !important;
+}
+
+/* Темный блок с контентом - более узкий со скруглением и градиентной обводкой */
+.footer-content-wrapper {
+  position: relative;
+  background: rgba(4, 13, 21, 0.85); /* Более прозрачный фон, чтобы градиент был виден */
+  border-radius: 24px; /* Скругление со всех сторон */
+  margin: 0 auto; /* Центрируем */
+  padding: 48px 64px 0 64px; /* Отступы: сверху 48px, снизу 0 (будет у footer-bottom), слева и справа 64px */
+  overflow: visible; /* Не обрезаем содержимое */
+  z-index: 2; /* Черный блок выше градиента */
+  width: calc(100% - 128px); /* Отступы слева и справа */
+  max-width: min(1200px, calc(100% - 128px)); /* Ограничиваем максимальную ширину */
+  box-sizing: border-box; /* Учитываем padding в ширине */
+}
+
+/* Градиентная обводка - верхняя часть прозрачная */
+.footer-content-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 24px;
+  padding: 1px;
+  /* Градиент с прозрачной верхней частью */
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 30%,
+    rgba(0, 191, 255, 0.1) 35%,
+    rgba(0, 191, 255, 0.6) 45%,
+    rgba(0, 134, 229, 0.4) 60%,
+    rgba(138, 43, 226, 0.4) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Анимация искр сверху */
+.footer-sparks {
+  position: absolute;
+  top: -100px; /* Искры видны на 100px выше блока */
+  left: 0;
+  right: 0;
+  height: 400px; /* Увеличиваем высоту на 100px */
+  pointer-events: none;
+  z-index: 1;
+  overflow: visible; /* Не обрезаем искры */
+  /* Разрешаем выход за пределы контейнера */
+  clip-path: none;
+}
+
+.footer-spark {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #00bfff;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: 0 0 6px #00bfff, 0 0 12px #00bfff;
+  animation: sparkRise linear infinite;
+}
+
+@keyframes sparkRise {
+  0% {
+    transform: translateY(400px) scale(0); /* Начинаем с 400px (300px + 100px выше) */
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) scale(1.5); /* Заканчиваем на 100px выше */
+    opacity: 0;
+  }
+}
+
+/* Статичный градиент снизу - три эллипса как в Figma */
+.footer-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 500px; /* Увеличиваем высоту, чтобы эллипсы были видны */
+  pointer-events: none;
+  z-index: 0; /* Градиент под черным блоком */
+  overflow: hidden; /* Обрезаем эллипсы, чтобы они не вызывали горизонтальный скролл */
+}
+
+.footer-gradient-ellipse {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px); /* Увеличиваем размытие для более мягкого эффекта */
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Ellipse 1807 - левый эллипс, яркий голубой */
+.footer-gradient-ellipse-1 {
+  width: 1807px;
+  height: 607px;
+  bottom: -600px; /* Поднимаем выше, чтобы эллипс был виден */
+  left: -200px; /* Смещаем влево, чтобы часть выходила за пределы */
+  background: radial-gradient(circle, rgba(0, 191, 255, 0.8) 0%, rgba(0, 191, 255, 0.5) 25%, rgba(0, 191, 255, 0.3) 45%, rgba(0, 191, 255, 0.1) 65%, transparent 80%);
+  opacity: 0.9;
+}
+
+/* Ellipse 1808 - центральный эллипс, средний голубой */
+.footer-gradient-ellipse-2 {
+  width: 1808px;
+  height: 608px;
+  bottom: -650px; /* Поднимаем выше */
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(0, 191, 255, 0.7) 0%, rgba(0, 134, 229, 0.5) 25%, rgba(0, 134, 229, 0.3) 45%, rgba(0, 134, 229, 0.1) 65%, transparent 80%);
+  opacity: 0.85;
+}
+
+/* Ellipse 1809 - правый эллипс, фиолетово-голубой */
+.footer-gradient-ellipse-3 {
+  width: 1809px;
+  height: 609px;
+  bottom: -600px; /* Поднимаем выше */
+  right: -150px; /* Смещаем вправо, часть выходит за пределы */
+  background: radial-gradient(circle, rgba(0, 134, 229, 0.6) 0%, rgba(138, 43, 226, 0.4) 25%, rgba(138, 43, 226, 0.2) 45%, rgba(138, 43, 226, 0.1) 65%, transparent 80%);
+  opacity: 0.8;
+}
+
+/* Контент футера */
+.footer-content {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 64px;
+  margin-bottom: 0; /* Убираем лишний отступ */
+  background: transparent; /* Прозрачный фон для правильного наложения */
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.footer-section-right {
+  align-items: flex-end;
+  text-align: right;
+  min-width: 0; /* Позволяет контенту сжиматься */
+  grid-row: 2; /* Начинается со второй строки, на уровне заголовка "навигация" */
+  align-self: start; /* Выравнивание по верхнему краю */
+}
+
+.footer-section-right > * {
+  max-width: 100%; /* Предотвращаем переполнение */
+}
+
+.footer-logo {
+  margin-bottom: 8px;
+}
+
+.footer-legal {
+  font-size: 13px;
+  line-height: 140%;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-legal p {
+  margin: 4px 0;
+}
+
+.footer-nav-section {
+  margin-top: 16px;
+}
+
+.footer-nav-heading {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 140%;
+  color: #00bfff;
+  margin-bottom: 16px;
+  text-transform: lowercase;
+}
+
+.footer-nav-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.footer-nav-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-nav-column a {
+  font-size: 14px;
+  line-height: 140%;
+  color: white;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-nav-column a:hover {
+  color: #00bfff;
+}
+
+.footer-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.footer-contact-item {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 140%;
+  color: white;
+  margin: 0;
+}
+
+.footer-news-button-wrapper {
+  display: inline-block;
+  width: 100%;
+}
+
+.footer-news-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  white-space: nowrap !important;
+  flex-wrap: nowrap !important;
+  width: auto !important;
+}
+
+.footer-news-button > span {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  white-space: nowrap !important;
+}
+
+.footer-news-text {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  display: inline-block !important;
+}
+
+.footer-news-icon {
+  flex-shrink: 0 !important;
+  display: inline-block !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.footer-news-icon {
+  color: #00bfff;
+  flex-shrink: 0;
+}
+
+.footer-sound-wave-1 {
+  animation: soundWave1 2s ease-in-out infinite;
+}
+
+.footer-sound-wave-2 {
+  animation: soundWave2 2s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+@keyframes soundWave1 {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(2px);
+  }
+}
+
+@keyframes soundWave2 {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateX(3px);
+  }
+}
+
+.footer-bottom {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 150px; /* Отступ перед линией */
+  padding-top: 24px; /* Отступ под линией до текста: равен padding-bottom (24px) */
+  padding-bottom: 24px; /* Отступ от текста до границы футера */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 13px;
+  line-height: 140%;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-bottom-link {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-bottom-link:hover {
+  color: #00bfff;
+}
+
+.footer-bottom-text {
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .footer-section-right {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+/* 3D кубы для секции достижений */
+.perspective-1000 {
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.cube-container {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+/* Floating анимация для кубов */
+.cube-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0px) rotateY(0deg);
+  }
+  25% {
+    transform: translate(-50%, -50%) translateY(-12px) rotateY(1deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-20px) rotateY(0deg);
+  }
+  75% {
+    transform: translate(-50%, -50%) translateY(-12px) rotateY(-1deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-content-wrapper {
+    margin: 0 24px 0 24px; /* Убираем margin-bottom на мобильных */
+    padding: 32px 24px;
+    width: calc(100% - 48px); /* Отступы слева и справа */
+  }
+
+  .footer-gradient {
+    left: 24px;
+    right: 24px;
+  }
+
+  .footer-nav-links {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+
+/* Floating анимация для линий между кубами */
+.line-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Анимация точки, бегущей по линии от начала к концу */
+@keyframes pointMove {
+  0% {
+    left: 0;
+    transform: translate(-50%, -50%) translateZ(-90px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    transform: translate(-50%, -50%) translateZ(-90px);
+    opacity: 0;
+  }
+}
+
+.line-point-animate {
+  animation: pointMove 3s ease-in-out infinite !important;
+}
+
+/* Анимации для страницы сертификатов */
+
+/* Три карточки сертификации - увеличение на 20% при наведении */
+.certificate-card-hover {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+.certificate-card-hover:hover {
+  transform: scale(1.2);
+}
+
+/* Сертификаты - градиент рамки переливается при наведении */
+.certificate-article-hover {
+  position: relative;
+}
+
+.certificate-frame-hover {
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+.certificate-article-hover:hover .certificate-frame-hover > div:last-child {
+  animation: gradient-shift 3s ease infinite;
+  background: linear-gradient(-44deg, rgba(255, 255, 255, 0.1) 10%, rgba(0, 239, 253, 0.3) 25%, rgba(11, 178, 242, 0.3) 90%, rgba(0, 177, 253, 0.95) 98%) !important;
+  background-size: 200% 200% !important;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Строки в блоке "Почему это важно?" - увеличение при наведении */
+.why-important-item-hover {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: left center;
+}
+
+.why-important-item-hover:hover {
+  transform: scale(1.05);
+}
+
+/* Анимация появления квадратов в сетке */
+@keyframes squareAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+}
+
+/* Анимация вылета дашбордов справа */
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%) rotate(0deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotate(var(--rotation, 0deg));
+    opacity: 1;
+  }
+}
