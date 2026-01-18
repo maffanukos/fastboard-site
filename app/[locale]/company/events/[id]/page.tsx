@@ -6,6 +6,18 @@ import type { Webinar } from "../../../../../types/events";
 import Button from "../../../../../components/ui/Button";
 import Breadcrumbs from "../../../../../components/ui/Breadcrumbs";
 
+// Генерируем статические параметры для всех возможных ID вебинаров
+export function generateStaticParams() {
+  // Возвращаем список всех возможных ID вебинаров из списка вебинаров
+  // В реальном приложении это может быть запрос к API или базе данных
+  const webinarIds = ['1', '2', '3', '4', '5', '6', '7'];
+  const locales: Locale[] = ['ru', 'en'];
+  
+  return locales.flatMap(locale => 
+    webinarIds.map(id => ({ locale, id }))
+  );
+}
+
 export default async function WebinarPage({
   params,
 }: {
