@@ -6,8 +6,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // Для GitHub Pages нужен статический экспорт
   output: 'export',
-  // Если репозиторий не основной (username.github.io), раскомментируйте:
-  // basePath: '/fastboard-site',
+  // Репозиторий не основной (username.github.io), поэтому нужен basePath
+  basePath: '/fastboard-site',
   images: {
     unoptimized: true, // GitHub Pages не поддерживает оптимизацию изображений Next.js
   },
