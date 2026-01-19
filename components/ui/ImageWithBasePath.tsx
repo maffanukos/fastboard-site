@@ -10,7 +10,8 @@ const BASE_PATH = '/fastboard-site';
 
 export default function ImageWithBasePath({ src, ...props }: ImageProps) {
   // Если src - строка и начинается с '/', добавляем basePath
-  const imageSrc = typeof src === 'string' && src.startsWith('/')
+  // Проверяем, что basePath еще не добавлен
+  const imageSrc = typeof src === 'string' && src.startsWith('/') && !src.startsWith(BASE_PATH)
     ? `${BASE_PATH}${src}`
     : src;
   
