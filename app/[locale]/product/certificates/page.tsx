@@ -230,7 +230,7 @@ export default async function CertificatesPage({
                         borderRadius: "2.65348px",
                       }}
                     >
-                      <Image
+                      <ImageWithBasePath
                         src={item.image}
                         alt={`Сертификат ${item.os}`}
                         width={348}
@@ -336,7 +336,7 @@ export default async function CertificatesPage({
           <div className="grid gap-[64px] md:grid-cols-2 items-center">
             {/* Левая колонка - шестиугольники с иконками */}
             <div className="relative flex flex-col items-center justify-center min-h-[400px]">
-              <Image
+              <ImageWithBasePath
                 src="/certificates/icon-legal-security.png.png"
                 alt="Почему это важно"
                 width={400}
@@ -426,7 +426,7 @@ export default async function CertificatesPage({
                 <div className="relative z-10 flex flex-col items-center gap-4 w-full">
                   {/* Sert/icon-card-size: 75px */}
                   <div className="flex items-center justify-center">
-                    <Image
+                    <ImageWithBasePath
                       src={item.image}
                       alt={item.title}
                       width={75}

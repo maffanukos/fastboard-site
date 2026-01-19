@@ -427,7 +427,7 @@ export default async function PlansPage({
                 <div className="content-stretch flex flex-col gap-[32px] h-[204px] items-center relative w-full">
                   <div className="content-stretch flex gap-[24px] items-start justify-center relative w-full">
                     <div className="relative size-[75px] flex-shrink-0">
-                      <Image
+                      <ImageWithBasePath
                         src="/figma-assets/server-icon.svg"
                         alt=""
                         width={75}
@@ -447,7 +447,7 @@ export default async function PlansPage({
                   </div>
                   <div className="content-stretch flex gap-[24px] items-start justify-center relative w-full">
                     <div className="relative size-[75px] flex-shrink-0">
-                      <Image
+                      <ImageWithBasePath
                         src="/figma-assets/cloud-icon.svg"
                         alt=""
                         width={75}
@@ -468,7 +468,7 @@ export default async function PlansPage({
                 </div>
               </div>
               <div className="flex-[1_0_0] min-h-px min-w-px relative z-10" style={{ width: '498.5px', height: '497.423px' }}>
-                <Image
+                <ImageWithBasePath
                   src="/figma-assets/887f80c6627032462208f7fd66347fdbfb69a864.png"
                   alt=""
                   width={463}
@@ -544,7 +544,7 @@ export default async function PlansPage({
                     </div>
                     <div className="content-stretch flex flex-col gap-[24px] items-center px-0 py-[24px] relative w-full z-10">
                       <div className="content-stretch flex items-center justify-center relative">
-                        <Image
+                        <ImageWithBasePath
                           src={service.icon}
                           alt=""
                           width={75}
@@ -595,7 +595,7 @@ export default async function PlansPage({
           </div>
           <div className="content-stretch flex flex-col gap-[32px] items-center px-0 py-[48px] relative w-full" style={{ zIndex: 1 }}>
             <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
-              <Image
+              <ImageWithBasePath
                 src="/figma-assets/c9a86127f4ad1bfc366ad2ab07f56b1c5bebe055.png"
                 alt=""
                 width={1400}
