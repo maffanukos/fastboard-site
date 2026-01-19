@@ -45,7 +45,7 @@ export default function Footer() {
         <div className="footer-section" style={{ gridRow: '1 / 3' }}>
           {/* Логотип */}
           <div className="footer-logo">
-            <Image
+            <ImageWithBasePath
               src="/logo.svg"
               alt="Fastboard"
               width={150}
