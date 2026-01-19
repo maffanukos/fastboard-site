@@ -257,7 +257,7 @@ export default async function BlogPage({
                 <div className="pointer-events-none absolute -inset-[15px] rounded-[18px] bg-[radial-gradient(ellipse_at_bottom,#0060E5_0,transparent_70%)] opacity-0 group-hover:opacity-30 blur-[50px] -z-10 transition-opacity" />
                 {/* Image */}
                 <div className="relative w-full h-[200px] rounded-[18px] overflow-hidden mb-4">
-                  <Image
+                  <ImageWithBasePath
                     src={article.image}
                     alt={article.title}
                     fill

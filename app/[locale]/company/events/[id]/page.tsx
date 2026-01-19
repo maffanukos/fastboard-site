@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ImageWithBasePath from "../../../../../components/ui/ImageWithBasePath";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { type Locale } from "../../../../../lib/dictionaries";
@@ -221,7 +221,7 @@ export default async function WebinarPage({
               >
                 <div className="w-[100px] h-[100px] rounded-full overflow-hidden flex-shrink-0 mb-6" style={{ backgroundColor: '#1C253A' }}>
                   {speaker.avatar ? (
-                    <Image
+                    <ImageWithBasePath
                       src={speaker.avatar}
                       alt={speaker.name}
                       width={100}
@@ -392,7 +392,7 @@ export default async function WebinarPage({
                   className="relative flex flex-col rounded-[18px] overflow-hidden bg-[#ffffff0d] border border-[#ffffff1a] backdrop-filter backdrop-blur-[10px] hover:border-[#00bfff] transition-all group"
                 >
                   <div className="relative w-full h-[200px]">
-                    <Image
+                    <ImageWithBasePath
                       src={item.image}
                       alt={item.title}
                       fill
@@ -432,7 +432,7 @@ export default async function WebinarPage({
                   className="relative flex flex-col rounded-[18px] overflow-hidden bg-[#ffffff0d] border border-[#ffffff1a] backdrop-filter backdrop-blur-[10px] hover:border-[#00bfff] transition-all group"
                 >
                   <div className="relative w-full h-[200px]">
-                    <Image
+                    <ImageWithBasePath
                       src={item.image}
                       alt={item.title}
                       fill
