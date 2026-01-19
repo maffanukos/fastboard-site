@@ -35,9 +35,16 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_YANDEX_MAPS_API_KEY: ${{ secrets.NEXT_PUBLIC_YANDEX_MAPS_API_KEY }}
+          NEXT_PUBLIC_BASE_PATH: '/fastboard-site'
 
       - name: Create .nojekyll file
-        run: touch out/.nojekyll
+        run: |
+          if [ ! -d "out" ]; then
+            echo "Error: out directory does not exist"
+            exit 1
+          fi
+          touch out/.nojekyll
+          echo ".nojekyll file created"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
