@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+import ImageWithBasePath from "./ImageWithBasePath";
 import Button from "./Button";
 import { useContactForm } from "../ContactFormProvider";
 
@@ -72,7 +72,7 @@ export default function TeamSection({ locale }: TeamSectionProps) {
         <div className="relative w-full aspect-[16/9] max-h-[600px] overflow-hidden rounded-lg">
           {/* Основное изображение офиса (черно-белое) */}
           <div className="absolute inset-0">
-            <Image
+            <ImageWithBasePath
               src="/images/928b72848c647c854782e264c99eaf77ed5248c8.png"
               alt="Office"
               fill

@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import ImageWithBasePath from "./ui/ImageWithBasePath";
 import Link from "next/link";
 import Button from "./ui/Button";
 
@@ -91,7 +91,7 @@ export default function Footer() {
             <Button size="medium" className="footer-news-button">
               <span className="footer-news-text">Самые свежие новости</span>
               {/* Иконка мегафона из public/icons/ */}
-              <Image
+              <ImageWithBasePath
                 src="/icons/megaphone.svg.svg"
                 alt=""
                 width={20}

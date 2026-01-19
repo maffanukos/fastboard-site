@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import ImageWithBasePath from "./ImageWithBasePath";
 import { useEffect, useRef, useState } from "react";
 
 interface DashboardSlideProps {
@@ -149,7 +149,7 @@ export default function DashboardSlides({ locale }: DashboardSlideProps) {
               setHoveredId(null);
             }}
           >
-            <Image
+            <ImageWithBasePath
               src={dashboard.src}
               alt={`Dashboard ${dashboard.id}`}
               width={dashboard.width}
@@ -162,8 +162,9 @@ export default function DashboardSlides({ locale }: DashboardSlideProps) {
               onError={(e) => {
                 // Если изображение не найдено, используем fallback
                 const target = e.target as HTMLImageElement;
-                if (target.src !== new URL(dashboard.fallbackSrc, window.location.origin).href) {
-                  target.src = dashboard.fallbackSrc;
+                const fallbackPath = `/fastboard-site${dashboard.fallbackSrc}`;
+                if (target.src !== new URL(fallbackPath, window.location.origin).href) {
+                  target.src = fallbackPath;
                 }
               }}
               unoptimized

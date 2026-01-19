@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ImageWithBasePath from "../../../../components/ui/ImageWithBasePath";
 import { type Locale } from "../../../../lib/dictionaries";
 import CTAButtons from "../../../../components/CTAButtons";
 import Breadcrumbs from "../../../../components/ui/Breadcrumbs";
@@ -148,7 +148,7 @@ export default async function CertificatesPage({
                   }}
                 />
                 <div className="relative z-10 flex items-center justify-center">
-                  <Image
+                  <ImageWithBasePath
                     src={item.image}
                     alt={item.title}
                     width={item.iconSize}

@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Image from "next/image";
+import ImageWithBasePath from "../../components/ui/ImageWithBasePath";
 import { getDictionary, type Locale } from "../../lib/dictionaries";
 import Button from "../../components/ui/Button";
 import Navigation from "../../components/Navigation";
@@ -64,7 +64,7 @@ export default async function LocaleLayout({
                   <ContactFormButton />
                   <Link href="#" className="flex items-center gap-2 text-[13px] leading-[120%] text-white">
                     {/* Иконка телефона из Figma */}
-                    <Image src="/icons/phone.svg" alt="" width={16} height={16} className="flex-shrink-0" unoptimized />
+                    <ImageWithBasePath src="/icons/phone.svg" alt="" width={16} height={16} className="flex-shrink-0" unoptimized />
                     {dict.header.phone}
                   </Link>
                 </div>
@@ -78,7 +78,7 @@ export default async function LocaleLayout({
                   {/* Логотип слева */}
                   <Link href={`/${currentLocale}`} className="flex items-center justify-start">
                     {/* Логотип из Figma - Header/logo-width: 150px */}
-                    <Image
+                    <ImageWithBasePath
                       src="/logo.svg"
                       alt="Fastboard"
                       width={150}

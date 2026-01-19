@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ImageWithBasePath from "../../../../components/ui/ImageWithBasePath";
 import Link from "next/link";
 import { type Locale } from "../../../../lib/dictionaries";
 import Button from "../../../../components/ui/Button";
@@ -225,7 +225,7 @@ export default async function EventsPage({
                   
                   {/* Изображение - занимает всю карточку как фон */}
                   <div className="absolute inset-0 z-0">
-                    <Image
+                    <ImageWithBasePath
                       src={webinar.image}
                       alt={webinar.title}
                       fill
@@ -311,7 +311,7 @@ export default async function EventsPage({
                   
                   {/* Изображение - занимает всю карточку как фон */}
                   <div className="absolute inset-0 z-0">
-                    <Image
+                    <ImageWithBasePath
                       src={webinar.image}
                       alt={webinar.title}
                       fill
@@ -429,7 +429,7 @@ export default async function EventsPage({
                   
                   {/* Изображение сверху - занимает всю карточку как фон */}
                   <div className="absolute inset-0 z-0">
-                    <Image
+                    <ImageWithBasePath
                       src={webinar.image}
                       alt={webinar.title}
                       fill

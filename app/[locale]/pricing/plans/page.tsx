@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import ImageWithBasePath from "../../../../components/ui/ImageWithBasePath";
 import { notFound } from "next/navigation";
 import { getDictionary, type Locale } from "../../../../lib/dictionaries";
 import Button from "../../../../components/ui/Button";
@@ -753,7 +753,7 @@ export default async function PlansPage({
                     </div>
                     <div className="content-stretch flex flex-col gap-[24px] items-center px-0 py-[24px] relative w-full z-10">
                       <div className="content-stretch flex items-center justify-center relative">
-                        <Image
+                        <ImageWithBasePath
                           src={feature.icon}
                           alt=""
                           width={75}

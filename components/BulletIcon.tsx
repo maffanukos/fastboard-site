@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ImageWithBasePath from "./ui/ImageWithBasePath";
 
 type BulletIconProps = {
   className?: string;
@@ -11,7 +11,7 @@ export default function BulletIcon({ className = "", propValue = "UI-icon" }: Bu
       <div className={`flex items-start justify-center relative shrink-0 w-[22px] ${className}`}>
         <div className="aspect-[24/24] relative shrink-0 w-full">
           <div className="absolute inset-[24.98%_12.5%_25.02%_16.66%]">
-            <Image
+            <ImageWithBasePath
               src="/figma-assets/6952e0ed67d6d8e47c4eff34b6e839f3ecb48d12.svg"
               alt=""
               width={24}
