@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
   output: 'export',
   // Репозиторий не основной (username.github.io), поэтому нужен basePath
   basePath: '/fastboard-site',
+  // assetPrefix нужен для правильной загрузки статических ресурсов (_next, изображения)
+  assetPrefix: '/fastboard-site',
   images: {
     unoptimized: true, // GitHub Pages не поддерживает оптимизацию изображений Next.js
   },
