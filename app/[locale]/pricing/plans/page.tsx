@@ -257,7 +257,7 @@ export default async function PlansPage({
                     <div className="flex-none rotate-[15.508deg]">
                       <div className="h-[161.147px] relative w-[253.502px]">
                         <div className="absolute inset-[-310.28%_-197.24%]">
-                          <Image
+                          <ImageWithBasePath
                             src="/figma-assets/cfe01d6c1c1cad5ca28bf9ee41d6c5ae15db34b3.svg"
                             alt=""
                             width={253}

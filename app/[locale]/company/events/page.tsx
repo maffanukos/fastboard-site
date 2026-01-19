@@ -381,7 +381,7 @@ export default async function EventsPage({
                     
                     {/* Изображение сверху - занимает всю карточку как фон */}
                     <div className="absolute inset-0 z-0">
-                      <Image
+                      <ImageWithBasePath
                         src={webinar.image}
                         alt={webinar.title}
                         fill
@@ -454,7 +454,7 @@ export default async function EventsPage({
                           <div key={idx} className="flex items-center gap-2">
                             <div className="w-8 h-8 rounded-full bg-gray-700 overflow-hidden flex-shrink-0">
                               {speaker.avatar ? (
-                                <Image
+                                <ImageWithBasePath
                                   src={speaker.avatar}
                                   alt={speaker.name}
                                   width={32}

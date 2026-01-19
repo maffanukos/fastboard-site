@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ImageWithBasePath from "../../../../components/ui/ImageWithBasePath";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { type Locale } from "../../../../lib/dictionaries";
@@ -213,7 +213,7 @@ export default async function BlogPage({
             
             {/* Image */}
             <div className="relative w-full md:w-1/2 h-[400px] md:h-auto rounded-[18px] overflow-hidden">
-              <Image
+              <ImageWithBasePath
                 src={featuredArticle.image}
                 alt={featuredArticle.title}
                 fill
